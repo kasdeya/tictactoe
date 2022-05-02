@@ -26,9 +26,9 @@ end
 
 def wincon(brd, c_player)
     if brd[0...3].all? { |x| x == c_player} || brd[3...6].all? { |x| x == c_player} || brd[6...9].all? { |x| x == c_player} 
-        puts "wins"
+        return true
     elsif brd[0] == c_player && brd[3]  == c_player && brd[6] == c_player || brd[1] == c_player && brd[4] == c_player && brd[7] == c_player ||  brd[2] == c_player && brd[5] == c_player && brd[8] == c_player || brd[0] == c_player && brd[4] == c_player && brd[8] == c_player || brd[2] == c_player && brd[4] == c_player && brd[6] == c_player
-        puts "wins"
+        return true
     end
 end
 
@@ -41,17 +41,18 @@ board = [" "," "," "," "," "," "," "," "," "]
 sample_board
 
 puts "TURN 1: Where would you like to go? 0-8"
-until wincon(board, current_player) == true
+loop do
 turn(board, current_player)
 display_board(board)
-wincon(board, current_player)
+break if wincon(board, current_player) == true
 current_player = player_2
 turn(board, current_player)
 display_board(board)
-wincon(board, current_player)
+break if wincon(board, current_player) == true
 current_player = player_1
 end
 p current_player + " " + "wins"
+
 
 =begin
     declare win condition
