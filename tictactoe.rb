@@ -7,21 +7,21 @@ def display_board(brd)
 end
 
 def sample_board
-    puts " 0 | 1 | 2 "
+    puts " 1 | 2 | 3 "
     puts "-----------"
-    puts " 3 | 4 | 5 "
+    puts " 4 | 5 | 6 "
     puts "-----------"
-    puts " 6 | 7 | 8 "
+    puts " 7 | 8 | 8 "
 end
 
 def turn(brd, player)
     position = gets.strip
     token = player
-    until brd[position.to_i] == " "
+    until brd[position.to_i - 1] == " "
         puts "position taken choose again"
         position = gets.strip
     end
-    brd[position.to_i] = token
+    brd[position.to_i - 1] = token
 end
 
 def wincon(brd, c_player)
@@ -29,6 +29,23 @@ def wincon(brd, c_player)
         return true
     elsif brd[0] == c_player && brd[3]  == c_player && brd[6] == c_player || brd[1] == c_player && brd[4] == c_player && brd[7] == c_player ||  brd[2] == c_player && brd[5] == c_player && brd[8] == c_player || brd[0] == c_player && brd[4] == c_player && brd[8] == c_player || brd[2] == c_player && brd[4] == c_player && brd[6] == c_player
         return true
+    end
+end
+
+def tie?(brd)
+    if brd.all? { |x| x == "O" || x == "X"}
+        puts "Tie!"
+        return true
+    end
+end
+
+def play_again
+    puts "Restart? (Y/n)"
+    answer = gets.strip
+    if answer == "y"
+        return true
+    else
+        return false
     end
 end
 
@@ -44,15 +61,50 @@ puts "TURN 1: Where would you like to go? 0-8"
 loop do
 turn(board, current_player)
 display_board(board)
-break if wincon(board, current_player) == true
+if wincon(board, current_player) == true
+p current_player + " " + "wins"
+    if play_again == true
+    puts "TURN 1: Where would you like to go? 0-8" 
+    sample_board
+    board = [" "," "," "," "," "," "," "," "," "] 
+    else
+        break
+end
+end
+if tie?(board) == true
+    if play_again == true
+        puts "TURN 1: Where would you like to go? 0-8" 
+        sample_board
+        board = [" "," "," "," "," "," "," "," "," "] 
+        else
+            break
+    end
+    end
 current_player = player_2
 turn(board, current_player)
 display_board(board)
-break if wincon(board, current_player) == true
+if wincon(board, current_player) == true
+p current_player + " " + "wins"
+    if play_again == true
+    puts "TURN 1: Where would you like to go? 0-8" 
+    sample_board
+    board = [" "," "," "," "," "," "," "," "," "] 
+else
+    break
+end
+end
+if tie?(board) == true
+    if play_again == true
+        puts "TURN 1: Where would you like to go? 0-8" 
+        sample_board
+        board = [" "," "," "," "," "," "," "," "," "] 
+        else
+            break
+    end
+    end
 current_player = player_1
 end
-p current_player + " " + "wins"
-
+# p current_player + " " + "wins"
 
 =begin
     declare win condition
@@ -98,6 +150,17 @@ def choose_turns
         p "You win, you go first"
     else
         p "You lose, you go second"
+    end
+end
+=end
+
+=begin
+def tie?
+    check that all positions are filled
+    if wincon == false
+        declare tie
+        no one wins
+        offer a restart
     end
 end
 =end
