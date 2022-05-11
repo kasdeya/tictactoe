@@ -57,7 +57,7 @@ board = [" "," "," "," "," "," "," "," "," "]
 
 sample_board
 
-puts "TURN 1: Where would you like to go? 0-8"
+puts "TURN 1: Where would you like to go? 1-8"
 loop do
 turn(board, current_player)
 display_board(board)
