@@ -64,7 +64,7 @@ display_board(board)
 if wincon(board, current_player) == true
 p current_player + " " + "wins"
     if play_again == true
-    puts "TURN 1: Where would you like to go? 0-8" 
+    puts "TURN 1: Where would you like to go? 1-8" 
     sample_board
     board = [" "," "," "," "," "," "," "," "," "] 
     else
@@ -73,7 +73,7 @@ end
 end
 if tie?(board) == true
     if play_again == true
-        puts "TURN 1: Where would you like to go? 0-8" 
+        puts "TURN 1: Where would you like to go? 1-8" 
         sample_board
         board = [" "," "," "," "," "," "," "," "," "] 
         else
@@ -86,7 +86,7 @@ display_board(board)
 if wincon(board, current_player) == true
 p current_player + " " + "wins"
     if play_again == true
-    puts "TURN 1: Where would you like to go? 0-8" 
+    puts "TURN 1: Where would you like to go? 1-8" 
     sample_board
     board = [" "," "," "," "," "," "," "," "," "] 
 else
@@ -95,7 +95,7 @@ end
 end
 if tie?(board) == true
     if play_again == true
-        puts "TURN 1: Where would you like to go? 0-8" 
+        puts "TURN 1: Where would you like to go? 1-8" 
         sample_board
         board = [" "," "," "," "," "," "," "," "," "] 
         else
