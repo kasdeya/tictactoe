@@ -11,7 +11,7 @@ def sample_board
     puts "-----------"
     puts " 4 | 5 | 6 "
     puts "-----------"
-    puts " 7 | 8 | 8 "
+    puts " 7 | 8 | 9 "
 end
 
 def turn(brd, player)
@@ -57,14 +57,14 @@ board = [" "," "," "," "," "," "," "," "," "]
 
 sample_board
 
-puts "TURN 1: Where would you like to go? 1-8"
+puts "TURN 1: Where would you like to go? 1-9"
 loop do
 turn(board, current_player)
 display_board(board)
 if wincon(board, current_player) == true
 p current_player + " " + "wins"
     if play_again == true
-    puts "TURN 1: Where would you like to go? 1-8" 
+    puts "TURN 1: Where would you like to go? 1-9" 
     sample_board
     board = [" "," "," "," "," "," "," "," "," "] 
     else
@@ -73,7 +73,7 @@ end
 end
 if tie?(board) == true
     if play_again == true
-        puts "TURN 1: Where would you like to go? 1-8" 
+        puts "TURN 1: Where would you like to go? 1-9" 
         sample_board
         board = [" "," "," "," "," "," "," "," "," "] 
         else
@@ -86,7 +86,7 @@ display_board(board)
 if wincon(board, current_player) == true
 p current_player + " " + "wins"
     if play_again == true
-    puts "TURN 1: Where would you like to go? 1-8" 
+    puts "TURN 1: Where would you like to go? 1-9" 
     sample_board
     board = [" "," "," "," "," "," "," "," "," "] 
 else
@@ -95,7 +95,7 @@ end
 end
 if tie?(board) == true
     if play_again == true
-        puts "TURN 1: Where would you like to go? 1-8" 
+        puts "TURN 1: Where would you like to go? 1-9" 
         sample_board
         board = [" "," "," "," "," "," "," "," "," "] 
         else
